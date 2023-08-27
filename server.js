@@ -3,6 +3,7 @@ const app = express();
 const fs = require('fs');
 const path = require('path');
 const PORT = 3001;
+
 app.use(express.json());
 app.use(express.static('public'));
 
@@ -19,12 +20,20 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api/notes', (req, res) => {
-    // how to read db.json file and return all saved notes as json?
+    // read db.json file and return all saved notes as json
     res.sendFile(path.join(__dirname, '/db/db.json'))
 });
 
+function addUniqueId(jsonData) {
+    let index = 1;
+    for (let item in jsonData) {
+        jsonData[item].id = index;
+        index++;
+    }
+    return jsonData;
+}
+
 app.post('/api/notes', (req, res) => {
-    console.log('req.body: ', req.body)
     // receive a new note to save on req body (req.body?)
     // add the note to the db.json file
     // return new note to client
@@ -33,15 +42,13 @@ app.post('/api/notes', (req, res) => {
         if (err) {
             console.error(err);
         } else {
-            console.log('Here are the contents of db.json: ', data);
             const parsedData = JSON.parse(data);
-          
+            // turn the JSON from the db.json file into an object
+        
+            req.body.id = parsedData.length + 1;
             parsedData.push(req.body);
-            console.log('parsedData: ', parsedData);
 
-            fs.writeFile('./db/db.json', JSON.stringify(parsedData, null, 4), (err) =>
-            err ? console.error(err) : console.info(`\nData written to './db/db.json'`)
-            );
+            fs.writeFile('./db/db.json', JSON.stringify(addUniqueId(parsedData), null, 4), (err) => err ? console.error(err) : res.json(parsedData));
         }
     });
 })
