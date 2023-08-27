@@ -55,6 +55,18 @@ app.delete('/api/notes/:id', (req, res) => {
     // remove note with the given id property
     // rewrite notes to the db.json file
     // hint: rewrite without the one you don't want (instead of extracting it)
+    fs.readFile('./db/db.json', 'utf8', (err, data) => {
+        if (err) {
+            console.error(err);
+        } else {
+            let parsedData = JSON.parse(data);
+            
+            parsedData.splice(req.params.id-1, 1);
+            parsedData = addUniqueId(parsedData);
+
+            fs.writeFile('./db/db.json', JSON.stringify(parsedData, null, 4), (err) => err ? console.error(err) : res.json(parsedData));
+        }
+    });
 })
 
 app.listen(PORT, () =>
