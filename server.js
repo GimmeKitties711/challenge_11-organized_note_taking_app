@@ -7,6 +7,8 @@ const PORT = 3001;
 app.use(express.json());
 app.use(express.static('public'));
 
+// express routing documentation: https://expressjs.com/en/guide/routing.html
+
 app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/notes.html'))
 });
@@ -28,6 +30,7 @@ function addUniqueId(jsonData) {
     }
     return jsonData;
 }
+// source for adding an id to each object in an array of objects: https://www.tutorialspoint.com/adding-a-unique-id-for-each-entry-in-json-object-in-javascript
 
 app.post('/api/notes', (req, res) => {
     // receive a new note to save on req body (req.body?)
@@ -40,8 +43,9 @@ app.post('/api/notes', (req, res) => {
         } else {
             const parsedData = JSON.parse(data);
             // turn the JSON from the db.json file into an object
-        
+
             req.body.id = parsedData.length + 1;
+            // source for adding a new property to an object: https://stackoverflow.com/questions/1168807/how-can-i-add-a-key-value-pair-to-a-javascript-object
             parsedData.push(req.body);
 
             fs.writeFile('./db/db.json', JSON.stringify(addUniqueId(parsedData), null, 4), (err) => err ? console.error(err) : res.json(parsedData));
@@ -60,8 +64,9 @@ app.delete('/api/notes/:id', (req, res) => {
             console.error(err);
         } else {
             let parsedData = JSON.parse(data);
-            
+
             parsedData.splice(req.params.id-1, 1);
+            // source for splice method: https://www.w3schools.com/jsref/jsref_splice.asp
             parsedData = addUniqueId(parsedData);
 
             fs.writeFile('./db/db.json', JSON.stringify(parsedData, null, 4), (err) => err ? console.error(err) : res.json(parsedData));
