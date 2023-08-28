@@ -1,27 +1,32 @@
 [
     {
-        "title": "note 6",
-        "text": "6",
+        "title": "test of tab",
+        "text": "tabs in title go down to text area. how about\ntabs in text area exit the test area.",
         "id": 1
     },
     {
-        "title": "noOOOOOOOO",
-        "text": "EFWIHU",
+        "title": "test of new lines in title",
+        "text": "new line in title are not allowed\n\ntwo\none\n\n\nthreee\n\n\n\nfour\n\n\n\n\nfive",
         "id": 2
     },
     {
-        "title": "do we have enough notes now?",
-        "text": "nah we dont",
+        "title": "spec char in title `~!@#$%^&",
+        "text": "title has char limit\n",
         "id": 3
     },
     {
-        "title": "yes",
-        "text": "WPOOOOOOOOOOOOOOOOO",
+        "title": "more goodie text",
+        "text": "\nline at beginning",
         "id": 4
     },
     {
-        "title": "is this working",
-        "text": "yes it fucking is",
+        "title": "poobird",
+        "text": "`~!@#$%^&*()-_=+[{]}\\|;:'\",<.>/?",
         "id": 5
+    },
+    {
+        "title": "test OF CPAS LOCK",
+        "text": "is this WORKING OEIWFOIEWJOFIEJWOFIWJ",
+        "id": 6
     }
 ]

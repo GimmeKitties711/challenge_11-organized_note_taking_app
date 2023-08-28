@@ -31,7 +31,7 @@ body {
 }
 
 .note-title {
-  height: 50px; /* should I change this to 70px? */
+  height: 70px; /* changed the height of the title box from 50px to 70px. at 50px, part of the bottom of the title was cut off, making characters like lowercase g not fully visible. */
   margin-top: 13px;
   font-size: 3rem;
 }
