@@ -45,16 +45,33 @@ app.post('/api/notes', (req, res) => {
             // source for adding a new property to an object: https://stackoverflow.com/questions/1168807/how-can-i-add-a-key-value-pair-to-a-javascript-object
             parsedNotes.push(req.body);
             // add the newest note to the end of parsedNotes
-            //parsedNotes = addUniqueId(parsedNotes);
 
             fs.writeFile('./db/db.json', JSON.stringify(parsedNotes, null, 4), (err) => err ? console.error(err) : res.json(parsedNotes));
             // send the response of parsedNotes as JSON so it gets written back to the page when the save button is clicked
+            /*
+            the question mark is called a ternary operator, and it condenses an if-else statement into one line. it works like this:
+
+            (condition) ? value if condition is true : value if condition is false
+
+            err ? console.error(err) : res.json(parsedNotes)
+
+            means
+
+            if(err) {
+                console.error(err)
+            } else {
+                res.json(parsedNotes)
+            }
+
+            source: https://builtin.com/software-engineering-perspectives/javascript-question-mark-operator
+            */
         }
     });
 })
 
 app.delete('/api/notes/:id', (req, res) => {
     fs.readFile('./db/db.json', 'utf8', (err, data) => {
+    // parameters: filename, encoding, callback function. source: https://nodejs.org/dist/latest-v6.x/docs/api/fs.html#fs_fs_readfile_file_options_callback
         if (err) {
             console.error(err);
         } else {
@@ -66,8 +83,18 @@ app.delete('/api/notes/:id', (req, res) => {
             parsedNotes = addUniqueId(parsedNotes);
             // rewrite the ids of all notes because if any note except the last one was deleted, the ids are no longer going to range from 1 to length, and they need to be kept that way
 
-            fs.writeFile('./db/db.json', JSON.stringify(parsedNotes, null, 4), (err) => err ? console.error(err) : res.json(parsedNotes));
             // write the new set of notes after deletion back to the JSON file
+            fs.writeFile('./db/db.json', JSON.stringify(parsedNotes, null, 4), (err) => err ? console.error(err) : res.json(parsedNotes));
+            // parameters: filename, data, callback. 'options' has been left blank because the default value of 'encoding' is already 'utf8'. source: https://nodejs.org/dist/latest-v6.x/docs/api/fs.html#fs_fs_writefile_file_data_options_callback
+            /*
+            parameters: JSON.stringify(value, replacer, space)
+
+            value: the value to convert to a JSON string, in this case parsedNotes
+            replacer: a function or array that changes the behavior of stringification, in this case null (no changes)
+            space: white space used to indent the entries of the output JSON string to make it more readable. in this case, 4 spaces indent each object in the db.json file.
+
+            source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
+            */
         }
     });
 })
