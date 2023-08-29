@@ -30,7 +30,7 @@ The following images demonstrate the application's appearance:
 **After saving the note:**
 ![After saving the note](Assets/Images/after_saving_the_note.png)
 
-The link to the deployed website can be found [here](insert link here).
+The link to the deployed website can be found [here](https://organized-note-taking-app-ab8f1d884f19.herokuapp.com/).
 ## Credits
 Received assistance from tutor Katharine Redford and AskBCS assistant Joem.
 
