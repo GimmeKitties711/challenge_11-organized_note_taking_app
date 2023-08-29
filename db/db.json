@@ -28,5 +28,10 @@
         "title": "Editing notes",
         "text": "It is currently not possible to edit a note that you have already written, but I hope to add that functionality in the future.",
         "id": 6
+    },
+    {
+        "title": "Bin collection day",
+        "text": "Every Wednesday around 9:00am\nRecycling is collected every other week, trash and green waste are collected every week\nTake the bins out to the curbside the night before",
+        "id": 7
     }
 ]
