@@ -30,7 +30,7 @@ The following images demonstrate the application's appearance:
 **After saving the note:**
 ![After saving the note](Assets/Images/after_saving_the_note.png)
 
-The link to the deployed website can be found [here](insert link).
+The link to the deployed website can be found [here](insert link here).
 ## Credits
 Received assistance from tutor Katharine Redford and AskBCS assistant Joem.
 
