@@ -146,6 +146,7 @@ const renderNoteList = async (notes) => {
         'text-danger',
         'delete-note'
       );
+      delBtnEl.setAttribute("title", "Delete Note"); // added this line because I want the text box "Delete Note" to appear when the mouse cursor hovers over the delete button
       delBtnEl.addEventListener('click', handleNoteDelete);
 
       liEl.append(delBtnEl);

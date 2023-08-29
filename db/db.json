@@ -1,67 +1,32 @@
 [
     {
-        "title": "first note 1",
-        "text": "one",
+        "title": "Welcome",
+        "text": "Welcome to the Note Taker. The following notes will provide guidelines that will help you use this app.",
         "id": 1
     },
     {
-        "title": "note 2",
-        "text": "2",
+        "title": "Clicking on notes",
+        "text": "The note boxes on the left side have a padding of 20px on all sides, and only the content enclosed inside the padding is clickable. As such, it is best to click directly on the text of a title to view a note.",
         "id": 2
     },
     {
-        "title": "note 6",
-        "text": "6",
+        "title": "Title character limit",
+        "text": "While the body does not seem to have a character limit, the title cannot be longer than 28 characters, so keep that in mind when you are writing a new note.",
         "id": 3
     },
     {
-        "title": "note 8",
-        "text": "8",
+        "title": "Tab and enter characters",
+        "text": "Pressing the tab key in both the title and the body removes the cursor from the screen, and you would have to click on the title or body again to continue typing.\n\nPressing the enter key does not do anything in the title, but it moves the cursor down to a new line in the body.",
         "id": 4
     },
     {
-        "title": "note 10",
-        "text": "10",
+        "title": "Duplicate notes",
+        "text": "This application allows you to write two or more notes that have identical titles and body text. However, it is not recommended to do this as it could cause confusion.",
         "id": 5
     },
     {
-        "title": "note 13",
-        "text": "13",
+        "title": "Editing notes",
+        "text": "It is currently not possible to edit a note that you have already written, but I hope to add that functionality in the future.",
         "id": 6
-    },
-    {
-        "title": "note 16",
-        "text": "note 16",
-        "id": 7
-    },
-    {
-        "title": "note 17",
-        "text": "17",
-        "id": 8
-    },
-    {
-        "title": "note 18",
-        "text": "18",
-        "id": 9
-    },
-    {
-        "title": "note 19",
-        "text": "19",
-        "id": 10
-    },
-    {
-        "title": "note 20",
-        "text": "20",
-        "id": 11
-    },
-    {
-        "title": "note 20",
-        "text": "2022",
-        "id": 12
-    },
-    {
-        "title": "note 21",
-        "text": "2022",
-        "id": 13
     }
 ]
